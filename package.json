@@ -1,0 +1,40 @@
+{
+  "name": "core",
+  "version": "0.0.1",
+  "description": "Bitcoin Core Library js",
+  "main": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dedupe": "./node_modules/.bin/force-dedupe-git-modules .",
+    "buildjs": "mkdir -p dist && ./node_modules/.bin/browserify ./index.js  > dist/core.js",
+    "min": "./node_modules/.bin/uglifyjs ./dist/core.js --output dist/core-min.js",
+    "build": "npm run dedupe && npm run buildjs && npm run buildjs-min && npm run min",
+    "install": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coinative/core.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coinative/core/issues"
+  },
+  "homepage": "https://github.com/coinative/core",
+  "dependencies": {
+    "core-address": "git://github.com/coinative/core-address",
+    "core-base58": "git://github.com/coinative/core-base58",
+    "core-hash": "git://github.com/coinative/core-hash",
+    "core-hdkey": "git://github.com/coinative/core-hdkey",
+    "core-key": "git://github.com/coinative/core-key",
+    "core-mnemonic": "git://github.com/coinative/core-mnemonic",
+    "core-mskey": "git://github.com/coinative/core-mskey",
+    "core-script": "git://github.com/coinative/core-script",
+    "core-sjcl": "git://github.com/coinative/core-sjcl"
+  },
+  "devDependencies": {
+    "browserify": "^4.1.8",
+    "force-dedupe-git-modules": "^0.1.4",
+    "uglify-js": "^2.4.13"
+  }
+}
