@@ -1,0 +1,4 @@
+core
+====
+
+Bitcoin Core Library
