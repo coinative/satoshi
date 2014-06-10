@@ -5,7 +5,7 @@
   "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dedupe": "./node_modules/.bin/force-dedupe-git-modules . && rm -rf dist/*",
+    "dedupe": "npm dedupe . && rm -rf dist/*",
     "build-umd": "./node_modules/.bin/browserify ./index.js -s bitcoin --o dist/satoshi.js && ./node_modules/.bin/uglifyjs ./dist/satoshi.js --output dist/satoshi-min.js --comments",
     "build": "npm run dedupe && npm run build-umd"
   },
@@ -21,16 +21,15 @@
   "homepage": "https://github.com/coinative/satoshi",
   "devDependencies": {
     "browserify": "^4.1.8",
-    "force-dedupe-git-modules": "^0.1.4",
     "uglify-js": "^2.4.13",
-    "satoshi-address": "git://github.com/coinative/satoshi-address",
-    "satoshi-base58": "git://github.com/coinative/satoshi-base58",
-    "satoshi-hash": "git://github.com/coinative/satoshi-hash",
-    "satoshi-hdkey": "git://github.com/coinative/satoshi-hdkey",
-    "satoshi-key": "git://github.com/coinative/satoshi-key",
-    "satoshi-mnemonic": "git://github.com/coinative/satoshi-mnemonic",
-    "satoshi-mskey": "git://github.com/coinative/satoshi-mskey",
-    "satoshi-script": "git://github.com/coinative/satoshi-script",
-    "satoshi-sjcl": "git://github.com/coinative/satoshi-sjcl"
+    "satoshi-address": "0.0.1",
+    "satoshi-base58":  "0.0.2",
+    "satoshi-hash": "0.0.1",
+    "satoshi-hdkey": "0.0.1",
+    "satoshi-key": "0.0.1",
+    "satoshi-mnemonic": "0.0.1",
+    "satoshi-mskey": "0.0.1",
+    "satoshi-script": "0.0.1",
+    "satoshi-sjcl": "0.0.2"
   }
 }
