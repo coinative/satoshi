@@ -1,18 +1,18 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.core=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 
 module.exports = {
-  base58: require('core-base58'),
-  hash: require('core-hash'),
-  Address: require('core-address'),
-  HdKey: require('core-hdkey'),
-  Key: require('core-key'),
-  mnemonic: require('core-mnemonic'),
-  MsKey: require('core-mskey'),
-  Script: require('core-script'),
-  sjcl: require('core-sjcl')
+  base58: _dereq_('core-base58'),
+  hash: _dereq_('core-hash'),
+  Address: _dereq_('core-address'),
+  HdKey: _dereq_('core-hdkey'),
+  Key: _dereq_('core-key'),
+  mnemonic: _dereq_('core-mnemonic'),
+  MsKey: _dereq_('core-mskey'),
+  Script: _dereq_('core-script'),
+  sjcl: _dereq_('core-sjcl')
 };
 
-},{"core-address":10,"core-base58":12,"core-hash":17,"core-hdkey":19,"core-key":21,"core-mnemonic":23,"core-mskey":24,"core-script":25,"core-sjcl":28}],2:[function(require,module,exports){
+},{"core-address":10,"core-base58":12,"core-hash":17,"core-hdkey":19,"core-key":21,"core-mnemonic":23,"core-mskey":24,"core-script":25,"core-sjcl":28}],2:[function(_dereq_,module,exports){
 // http://wiki.commonjs.org/wiki/Unit_Testing/1.0
 //
 // THIS IS NOT TESTED NOR LIKELY TO WORK OUTSIDE V8!
@@ -40,7 +40,7 @@ module.exports = {
 // when used in node, this will actually load the util module we depend on
 // versus loading the builtin util module as happens otherwise
 // this is a bug in node module loading as far as I am concerned
-var util = require('util/');
+var util = _dereq_('util/');
 
 var pSlice = Array.prototype.slice;
 var hasOwn = Object.prototype.hasOwnProperty;
@@ -374,14 +374,14 @@ var objectKeys = Object.keys || function (obj) {
   return keys;
 };
 
-},{"util/":4}],3:[function(require,module,exports){
+},{"util/":4}],3:[function(_dereq_,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],4:[function(require,module,exports){
+},{}],4:[function(_dereq_,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -908,7 +908,7 @@ function isPrimitive(arg) {
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = require('./support/isBuffer');
+exports.isBuffer = _dereq_('./support/isBuffer');
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -952,7 +952,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = require('inherits');
+exports.inherits = _dereq_('inherits');
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
@@ -970,8 +970,8 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-}).call(this,require("FWaASH"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":3,"FWaASH":9,"inherits":8}],5:[function(require,module,exports){
+}).call(this,_dereq_("FWaASH"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./support/isBuffer":3,"FWaASH":9,"inherits":8}],5:[function(_dereq_,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -979,8 +979,8 @@ function hasOwnProperty(obj, prop) {
  * @license  MIT
  */
 
-var base64 = require('base64-js')
-var ieee754 = require('ieee754')
+var base64 = _dereq_('base64-js')
+var ieee754 = _dereq_('ieee754')
 
 exports.Buffer = Buffer
 exports.SlowBuffer = Buffer
@@ -2122,7 +2122,7 @@ function assert (test, message) {
   if (!test) throw new Error(message || 'Failed assertion')
 }
 
-},{"base64-js":6,"ieee754":7}],6:[function(require,module,exports){
+},{"base64-js":6,"ieee754":7}],6:[function(_dereq_,module,exports){
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 ;(function (exports) {
@@ -2244,7 +2244,7 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 	exports.fromByteArray = uint8ToBase64
 }(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
 
-},{}],7:[function(require,module,exports){
+},{}],7:[function(_dereq_,module,exports){
 exports.read = function(buffer, offset, isLE, mLen, nBytes) {
   var e, m,
       eLen = nBytes * 8 - mLen - 1,
@@ -2330,7 +2330,7 @@ exports.write = function(buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128;
 };
 
-},{}],8:[function(require,module,exports){
+},{}],8:[function(_dereq_,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -2355,7 +2355,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],9:[function(require,module,exports){
+},{}],9:[function(_dereq_,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -2420,9 +2420,9 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],10:[function(require,module,exports){
+},{}],10:[function(_dereq_,module,exports){
 (function (Buffer){
-var base58 = require('core-base58');
+var base58 = _dereq_('core-base58');
 
 function parseAddress(address) {
   var data = base58.decodeCheck(address);
@@ -2502,10 +2502,10 @@ Object.defineProperty(Address, 'versions', {
 
 module.exports = Address;
 
-}).call(this,require("buffer").Buffer)
-},{"buffer":5,"core-base58":12}],11:[function(require,module,exports){
-var BigInteger = require('bigi');
-var inherits = require('inherits');
+}).call(this,_dereq_("buffer").Buffer)
+},{"buffer":5,"core-base58":12}],11:[function(_dereq_,module,exports){
+var BigInteger = _dereq_('bigi');
+var inherits = _dereq_('inherits');
 
 function BigNum(num) {
   if (!(this instanceof BigNum)) {
@@ -2578,10 +2578,10 @@ BigNum.prototype.toNumber = function () {
 
 module.exports = BigNum;
 
-},{"bigi":15,"inherits":16}],12:[function(require,module,exports){
+},{"bigi":15,"inherits":16}],12:[function(_dereq_,module,exports){
 (function (Buffer){
-var bn = require('bignum');
-var hash = require('core-hash');
+var bn = _dereq_('bignum');
+var hash = _dereq_('core-hash');
 
 var base58Chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
 var base58Values = {};
@@ -2646,9 +2646,9 @@ exports.decode = decode;
 exports.encodeCheck = encodeCheck;
 exports.decodeCheck = decodeCheck;
 
-}).call(this,require("buffer").Buffer)
-},{"bignum":11,"buffer":5,"core-hash":17}],13:[function(require,module,exports){
-var assert = require('assert')
+}).call(this,_dereq_("buffer").Buffer)
+},{"bignum":11,"buffer":5,"core-hash":17}],13:[function(_dereq_,module,exports){
+var assert = _dereq_('assert')
 
 module.exports = BigInteger
 
@@ -3838,11 +3838,11 @@ BigInteger.ZERO = nbv(0);
 BigInteger.ONE = nbv(1);
 BigInteger.valueOf = nbv;
 
-},{"assert":2}],14:[function(require,module,exports){
+},{"assert":2}],14:[function(_dereq_,module,exports){
 (function (Buffer){
 // FIXME: Kind of a weird way to throw exceptions, consider removing
-var assert = require('assert')
-var BigInteger = require('./bigi')
+var assert = _dereq_('assert')
+var BigInteger = _dereq_('./bigi')
 
 /**
  * Turns a byte array into a big integer.
@@ -3932,19 +3932,19 @@ BigInteger.prototype.toHex = function(size) {
   return this.toBuffer(size).toString('hex')
 }
 
-}).call(this,require("buffer").Buffer)
-},{"./bigi":13,"assert":2,"buffer":5}],15:[function(require,module,exports){
-var BigInteger = require('./bigi')
+}).call(this,_dereq_("buffer").Buffer)
+},{"./bigi":13,"assert":2,"buffer":5}],15:[function(_dereq_,module,exports){
+var BigInteger = _dereq_('./bigi')
 
 //addons
-require('./convert')
+_dereq_('./convert')
 
 module.exports = BigInteger
-},{"./bigi":13,"./convert":14}],16:[function(require,module,exports){
-module.exports=require(8)
-},{}],17:[function(require,module,exports){
+},{"./bigi":13,"./convert":14}],16:[function(_dereq_,module,exports){
+module.exports=_dereq_(8)
+},{}],17:[function(_dereq_,module,exports){
 (function (Buffer){
-var sjcl = require('core-sjcl');
+var sjcl = _dereq_('core-sjcl');
 
 var toBits = sjcl.codec.bytes.toBits;
 var toBytes = sjcl.codec.bytes.fromBits;
@@ -3989,11 +3989,11 @@ exports.hash256 = wrap(hash256);
 exports.hmacsha256 = wrap(hmacsha256);
 exports.hmacsha512 = wrap(hmacsha512);
 
-}).call(this,require("buffer").Buffer)
-},{"buffer":5,"core-sjcl":28}],18:[function(require,module,exports){
+}).call(this,_dereq_("buffer").Buffer)
+},{"buffer":5,"core-sjcl":28}],18:[function(_dereq_,module,exports){
 (function (Buffer){
-var Key = require('core-key');
-var sjcl = require('core-sjcl');
+var Key = _dereq_('core-key');
+var sjcl = _dereq_('core-sjcl');
 var ecc = sjcl.ecc;
 var curve = ecc.curves.k256;
 var b = sjcl.bitArray;
@@ -4037,15 +4037,15 @@ exports.derivePublic = function (IL, pubUncompressed) {
   return new Buffer([0x04].concat(x, y));
 };
 
-}).call(this,require("buffer").Buffer)
-},{"buffer":5,"core-key":21,"core-sjcl":28}],19:[function(require,module,exports){
+}).call(this,_dereq_("buffer").Buffer)
+},{"buffer":5,"core-key":21,"core-sjcl":28}],19:[function(_dereq_,module,exports){
 (function (Buffer){
-var Address = require('core-address');
-var base58 = require('core-base58');
-var derive = require('./derive-module');
-var hmacsha512 = require('core-hash').hmacsha512;
-var hash160 = require('core-hash').hash160;
-var Key = require('core-key');
+var Address = _dereq_('core-address');
+var base58 = _dereq_('core-base58');
+var derive = _dereq_('./derive-module');
+var hmacsha512 = _dereq_('core-hash').hmacsha512;
+var hash160 = _dereq_('core-hash').hash160;
+var Key = _dereq_('core-key');
 
 function parseExtendedKey(xkey) {
   var data = base58.decodeCheck(xkey);
@@ -4218,11 +4218,11 @@ HDKey.HARDENED_START = 0x80000000;
 
 module.exports = HDKey;
 
-}).call(this,require("buffer").Buffer)
-},{"./derive-module":18,"buffer":5,"core-address":10,"core-base58":12,"core-hash":17,"core-key":21}],20:[function(require,module,exports){
+}).call(this,_dereq_("buffer").Buffer)
+},{"./derive-module":18,"buffer":5,"core-address":10,"core-base58":12,"core-hash":17,"core-key":21}],20:[function(_dereq_,module,exports){
 (function (Buffer){
-var assert = require('assert');
-var sjcl = require('core-sjcl');
+var assert = _dereq_('assert');
+var sjcl = _dereq_('core-sjcl');
 var b = sjcl.bitArray;
 var ecc = sjcl.ecc;
 var curve = ecc.curves.k256;
@@ -4343,13 +4343,13 @@ KeyModule.prototype.verify = function (hash, signature) {
 
 module.exports = KeyModule;
 
-}).call(this,require("buffer").Buffer)
-},{"assert":2,"buffer":5,"core-sjcl":28}],21:[function(require,module,exports){
+}).call(this,_dereq_("buffer").Buffer)
+},{"assert":2,"buffer":5,"core-sjcl":28}],21:[function(_dereq_,module,exports){
 (function (Buffer){
-var Address = require('core-address');
-var KeyModule = require('./key-module');
-var hash160 = require('core-hash').hash160;
-var hmacsha256 = require('core-hash').hmacsha256;
+var Address = _dereq_('core-address');
+var KeyModule = _dereq_('./key-module');
+var hash160 = _dereq_('core-hash').hash160;
+var hmacsha256 = _dereq_('core-hash').hmacsha256;
 
 function Key(options) {
   this.keyModule = new KeyModule();
@@ -4420,10 +4420,10 @@ Key.generateK = function(prv, hash) {
 
 module.exports = Key;
 
-}).call(this,require("buffer").Buffer)
-},{"./key-module":20,"buffer":5,"core-address":10,"core-hash":17}],22:[function(require,module,exports){
+}).call(this,_dereq_("buffer").Buffer)
+},{"./key-module":20,"buffer":5,"core-address":10,"core-hash":17}],22:[function(_dereq_,module,exports){
 (function (Buffer){
-var sjcl = require('core-sjcl');
+var sjcl = _dereq_('core-sjcl');
 
 var toBits = sjcl.codec.bytes.toBits;
 var toBytes = sjcl.codec.bytes.fromBits;
@@ -4446,12 +4446,12 @@ module.exports = wrap(function (password, salt) {
   });
 });
 
-}).call(this,require("buffer").Buffer)
-},{"buffer":5,"core-sjcl":28}],23:[function(require,module,exports){
+}).call(this,_dereq_("buffer").Buffer)
+},{"buffer":5,"core-sjcl":28}],23:[function(_dereq_,module,exports){
 (function (Buffer){
-var assert = require('assert');
-var sha256 = require('core-hash').sha256;
-var pbkdf2 = require('./pbkdf2');
+var assert = _dereq_('assert');
+var sha256 = _dereq_('core-hash').sha256;
+var pbkdf2 = _dereq_('./pbkdf2');
 
 var wordlist = "abandon ability able about above absent absorb abstract absurd abuse access accident account accuse achieve acid acoustic acquire across act action actor actress actual adapt add addict address adjust admit adult advance advice aerobic affair afford afraid again age agent agree ahead aim air airport aisle alarm album alcohol alert alien all alley allow almost alone alpha already also alter always amateur amazing among amount amused analyst anchor ancient anger angle angry animal ankle announce annual another answer antenna antique anxiety any apart apology appear apple approve april arch arctic area arena argue arm armed armor army around arrange arrest arrive arrow art artefact artist artwork ask aspect assault asset assist assume asthma athlete atom attack attend attitude attract auction audit august aunt author auto autumn average avocado avoid awake aware away awesome awful awkward axis baby bachelor bacon badge bag balance balcony ball bamboo banana banner bar barely bargain barrel base basic basket battle beach bean beauty because become beef before begin behave behind believe below belt bench benefit best betray better between beyond bicycle bid bike bind biology bird birth bitter black blade blame blanket blast bleak bless blind blood blossom blouse blue blur blush board boat body boil bomb bone bonus book boost border boring borrow boss bottom bounce box boy bracket brain brand brass brave bread breeze brick bridge brief bright bring brisk broccoli broken bronze broom brother brown brush bubble buddy budget buffalo build bulb bulk bullet bundle bunker burden burger burst bus business busy butter buyer buzz cabbage cabin cable cactus cage cake call calm camera camp can canal cancel candy cannon canoe canvas canyon capable capital captain car carbon card cargo carpet carry cart case cash casino castle casual cat catalog catch category cattle caught cause caution cave ceiling celery cement census century cereal certain chair chalk champion change chaos chapter charge chase chat cheap check cheese chef cherry chest chicken chief child chimney choice choose chronic chuckle chunk churn cigar cinnamon circle citizen city civil claim clap clarify claw clay clean clerk clever click client cliff climb clinic clip clock clog close cloth cloud clown club clump cluster clutch coach coast coconut code coffee coil coin collect color column combine come comfort comic common company concert conduct confirm congress connect consider control convince cook cool copper copy coral core corn correct cost cotton couch country couple course cousin cover coyote crack cradle craft cram crane crash crater crawl crazy cream credit creek crew cricket crime crisp critic crop cross crouch crowd crucial cruel cruise crumble crunch crush cry crystal cube culture cup cupboard curious current curtain curve cushion custom cute cycle dad damage damp dance danger daring dash daughter dawn day deal debate debris decade december decide decline decorate decrease deer defense define defy degree delay deliver demand demise denial dentist deny depart depend deposit depth deputy derive describe desert design desk despair destroy detail detect develop device devote diagram dial diamond diary dice diesel diet differ digital dignity dilemma dinner dinosaur direct dirt disagree discover disease dish dismiss disorder display distance divert divide divorce dizzy doctor document dog doll dolphin domain donate donkey donor door dose double dove draft dragon drama drastic draw dream dress drift drill drink drip drive drop drum dry duck dumb dune during dust dutch duty dwarf dynamic eager eagle early earn earth easily east easy echo ecology economy edge edit educate effort egg eight either elbow elder electric elegant element elephant elevator elite else embark embody embrace emerge emotion employ empower empty enable enact end endless endorse enemy energy enforce engage engine enhance enjoy enlist enough enrich enroll ensure enter entire entry envelope episode equal equip era erase erode erosion error erupt escape essay essence estate eternal ethics evidence evil evoke evolve exact example excess exchange excite exclude excuse execute exercise exhaust exhibit exile exist exit exotic expand expect expire explain expose express extend extra eye eyebrow fabric face faculty fade faint faith fall false fame family famous fan fancy fantasy farm fashion fat fatal father fatigue fault favorite feature february federal fee feed feel female fence festival fetch fever few fiber fiction field figure file film filter final find fine finger finish fire firm first fiscal fish fit fitness fix flag flame flash flat flavor flee flight flip float flock floor flower fluid flush fly foam focus fog foil fold follow food foot force forest forget fork fortune forum forward fossil foster found fox fragile frame frequent fresh friend fringe frog front frost frown frozen fruit fuel fun funny furnace fury future gadget gain galaxy gallery game gap garage garbage garden garlic garment gas gasp gate gather gauge gaze general genius genre gentle genuine gesture ghost giant gift giggle ginger giraffe girl give glad glance glare glass glide glimpse globe gloom glory glove glow glue goat goddess gold good goose gorilla gospel gossip govern gown grab grace grain grant grape grass gravity great green grid grief grit grocery group grow grunt guard guess guide guilt guitar gun gym habit hair half hammer hamster hand happy harbor hard harsh harvest hat have hawk hazard head health heart heavy hedgehog height hello helmet help hen hero hidden high hill hint hip hire history hobby hockey hold hole holiday hollow home honey hood hope horn horror horse hospital host hotel hour hover hub huge human humble humor hundred hungry hunt hurdle hurry hurt husband hybrid ice icon idea identify idle ignore ill illegal illness image imitate immense immune impact impose improve impulse inch include income increase index indicate indoor industry infant inflict inform inhale inherit initial inject injury inmate inner innocent input inquiry insane insect inside inspire install intact interest into invest invite involve iron island isolate issue item ivory jacket jaguar jar jazz jealous jeans jelly jewel job join joke journey joy judge juice jump jungle junior junk just kangaroo keen keep ketchup key kick kid kidney kind kingdom kiss kit kitchen kite kitten kiwi knee knife knock know lab label labor ladder lady lake lamp language laptop large later latin laugh laundry lava law lawn lawsuit layer lazy leader leaf learn leave lecture left leg legal legend leisure lemon lend length lens leopard lesson letter level liar liberty library license life lift light like limb limit link lion liquid list little live lizard load loan lobster local lock logic lonely long loop lottery loud lounge love loyal lucky luggage lumber lunar lunch luxury lyrics machine mad magic magnet maid mail main major make mammal man manage mandate mango mansion manual maple marble march margin marine market marriage mask mass master match material math matrix matter maximum maze meadow mean measure meat mechanic medal media melody melt member memory mention menu mercy merge merit merry mesh message metal method middle midnight milk million mimic mind minimum minor minute miracle mirror misery miss mistake mix mixed mixture mobile model modify mom moment monitor monkey monster month moon moral more morning mosquito mother motion motor mountain mouse move movie much muffin mule multiply muscle museum mushroom music must mutual myself mystery myth naive name napkin narrow nasty nation nature near neck need negative neglect neither nephew nerve nest net network neutral never news next nice night noble noise nominee noodle normal north nose notable note nothing notice novel now nuclear number nurse nut oak obey object oblige obscure observe obtain obvious occur ocean october odor off offer office often oil okay old olive olympic omit once one onion online only open opera opinion oppose option orange orbit orchard order ordinary organ orient original orphan ostrich other outdoor outer output outside oval oven over own owner oxygen oyster ozone pact paddle page pair palace palm panda panel panic panther paper parade parent park parrot party pass patch path patient patrol pattern pause pave payment peace peanut pear peasant pelican pen penalty pencil people pepper perfect permit person pet phone photo phrase physical piano picnic picture piece pig pigeon pill pilot pink pioneer pipe pistol pitch pizza place planet plastic plate play please pledge pluck plug plunge poem poet point polar pole police pond pony pool popular portion position possible post potato pottery poverty powder power practice praise predict prefer prepare present pretty prevent price pride primary print priority prison private prize problem process produce profit program project promote proof property prosper protect proud provide public pudding pull pulp pulse pumpkin punch pupil puppy purchase purity purpose purse push put puzzle pyramid quality quantum quarter question quick quit quiz quote rabbit raccoon race rack radar radio rail rain raise rally ramp ranch random range rapid rare rate rather raven raw razor ready real reason rebel rebuild recall receive recipe record recycle reduce reflect reform refuse region regret regular reject relax release relief rely remain remember remind remove render renew rent reopen repair repeat replace report require rescue resemble resist resource response result retire retreat return reunion reveal review reward rhythm rib ribbon rice rich ride ridge rifle right rigid ring riot ripple risk ritual rival river road roast robot robust rocket romance roof rookie room rose rotate rough round route royal rubber rude rug rule run runway rural sad saddle sadness safe sail salad salmon salon salt salute same sample sand satisfy satoshi sauce sausage save say scale scan scare scatter scene scheme school science scissors scorpion scout scrap screen script scrub sea search season seat second secret section security seed seek segment select sell seminar senior sense sentence series service session settle setup seven shadow shaft shallow share shed shell sheriff shield shift shine ship shiver shock shoe shoot shop short shoulder shove shrimp shrug shuffle shy sibling sick side siege sight sign silent silk silly silver similar simple since sing siren sister situate six size skate sketch ski skill skin skirt skull slab slam sleep slender slice slide slight slim slogan slot slow slush small smart smile smoke smooth snack snake snap sniff snow soap soccer social sock soda soft solar soldier solid solution solve someone song soon sorry sort soul sound soup source south space spare spatial spawn speak special speed spell spend sphere spice spider spike spin spirit split spoil sponsor spoon sport spot spray spread spring spy square squeeze squirrel stable stadium staff stage stairs stamp stand start state stay steak steel stem step stereo stick still sting stock stomach stone stool story stove strategy street strike strong struggle student stuff stumble style subject submit subway success such sudden suffer sugar suggest suit summer sun sunny sunset super supply supreme sure surface surge surprise surround survey suspect sustain swallow swamp swap swarm swear sweet swift swim swing switch sword symbol symptom syrup system table tackle tag tail talent talk tank tape target task taste tattoo taxi teach team tell ten tenant tennis tent term test text thank that theme then theory there they thing this thought three thrive throw thumb thunder ticket tide tiger tilt timber time tiny tip tired tissue title toast tobacco today toddler toe together toilet token tomato tomorrow tone tongue tonight tool tooth top topic topple torch tornado tortoise toss total tourist toward tower town toy track trade traffic tragic train transfer trap trash travel tray treat tree trend trial tribe trick trigger trim trip trophy trouble truck true truly trumpet trust truth try tube tuition tumble tuna tunnel turkey turn turtle twelve twenty twice twin twist two type typical ugly umbrella unable unaware uncle uncover under undo unfair unfold unhappy uniform unique unit universe unknown unlock until unusual unveil update upgrade uphold upon upper upset urban urge usage use used useful useless usual utility vacant vacuum vague valid valley valve van vanish vapor various vast vault vehicle velvet vendor venture venue verb verify version very vessel veteran viable vibrant vicious victory video view village vintage violin virtual virus visa visit visual vital vivid vocal voice void volcano volume vote voyage wage wagon wait walk wall walnut want warfare warm warrior wash wasp waste water wave way wealth weapon wear weasel weather web wedding weekend weird welcome west wet whale what wheat wheel when where whip whisper wide width wife wild will win window wine wing wink winner winter wire wisdom wise wish witness wolf woman wonder wood wool word work world worry worth wrap wreck wrestle wrist write wrong yard year yellow you young youth zebra zero zone zoo".split(' ');
 var lookup = wordlist.reduce(function (obj, word, index) {
@@ -4535,12 +4535,12 @@ exports.decode = decode;
 exports.check = check;
 exports.toSeed = toSeed;
 
-}).call(this,require("buffer").Buffer)
-},{"./pbkdf2":22,"assert":2,"buffer":5,"core-hash":17}],24:[function(require,module,exports){
-var assert = require('assert');
-var Address = require('core-address');
-var Hash = require('core-hash');
-var Script = require('core-script');
+}).call(this,_dereq_("buffer").Buffer)
+},{"./pbkdf2":22,"assert":2,"buffer":5,"core-hash":17}],24:[function(_dereq_,module,exports){
+var assert = _dereq_('assert');
+var Address = _dereq_('core-address');
+var Hash = _dereq_('core-hash');
+var Script = _dereq_('core-script');
 
 function MSKey(options) {
   assert(options, 'Missing options');
@@ -4577,10 +4577,10 @@ MSKey.prototype.deriveHardened = function (index) {
 
 module.exports = MSKey;
 
-},{"assert":2,"core-address":10,"core-hash":17,"core-script":25}],25:[function(require,module,exports){
+},{"assert":2,"core-address":10,"core-hash":17,"core-script":25}],25:[function(_dereq_,module,exports){
 (function (Buffer){
-var opcodes = require('./opcode').map;
-var hash160 = require('core-hash').hash160;
+var opcodes = _dereq_('./opcode').map;
+var hash160 = _dereq_('core-hash').hash160;
 
 function Script(buffer) {
   this.buffer = buffer || new Buffer(0);
@@ -4860,8 +4860,8 @@ Script.opcodes = opcodes;
 
 module.exports = Script;
 
-}).call(this,require("buffer").Buffer)
-},{"./opcode":26,"buffer":5,"core-hash":17}],26:[function(require,module,exports){
+}).call(this,_dereq_("buffer").Buffer)
+},{"./opcode":26,"buffer":5,"core-hash":17}],26:[function(_dereq_,module,exports){
 exports.map = {
   // push value
   OP_FALSE : 0x00,
@@ -5011,10 +5011,10 @@ Object.keys(exports.map).forEach(function (key) {
   exports.reverseMap[exports.map[key]] = key.substr(3);
 });
 
-},{}],27:[function(require,module,exports){
+},{}],27:[function(_dereq_,module,exports){
 // ignore require('crypto')
 
-},{}],28:[function(require,module,exports){
+},{}],28:[function(_dereq_,module,exports){
 "use strict";
 
 var sjcl = {
@@ -6099,7 +6099,7 @@ sjcl.random = new sjcl.prng(6);
 (function() {
     function getCryptoModule() {
         try {
-            return require("crypto");
+            return _dereq_("crypto");
         } catch (e) {
             return null;
         }
@@ -7348,3 +7348,5 @@ function _block(X) {
     this._h[0] = T;
 }
 },{"crypto":27}]},{},[1])
+(1)
+});
