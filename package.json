@@ -1,6 +1,6 @@
 {
   "name": "satoshi",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Bitcoin core library for NodeJS and browsers",
   "main": "./index.js",
   "scripts": {
