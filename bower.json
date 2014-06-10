@@ -1,18 +1,17 @@
 {
   "name": "satoshi",
-  "main": "dist/core.js",
+  "main": "dist/satoshi.js",
   "version": "0.0.1",
   "homepage": "https://github.com/coinative/satoshi",
   "authors": [
     "Ion Drive Software Ltd."
   ],
-  "description": "Bitcoin core library",
+  "description": "Bitcoin JavaScript Library",
   "keywords": [
     "bitcoin",
     "core",
     "library",
-    "satoshi",
-    "bit"
+    "satoshi"
   ],
   "license": "MIT"
 }

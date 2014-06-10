@@ -1,24 +1,24 @@
 {
-  "name": "core",
+  "name": "satoshi",
   "version": "0.0.1",
-  "description": "Bitcoin Core Library js",
+  "description": "Bitcoin JavaScript Library",
   "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dedupe": "./node_modules/.bin/force-dedupe-git-modules . && rm -rf dist/*",
-    "build-umd": "./node_modules/.bin/browserify ./index.js -s core --o dist/core.js && ./node_modules/.bin/uglifyjs ./dist/core.js --output dist/core-min.js --comments",
+    "build-umd": "./node_modules/.bin/browserify ./index.js -s bitcoin --o dist/satoshi.js && ./node_modules/.bin/uglifyjs ./dist/satoshi.js --output dist/satoshi-min.js --comments",
     "build": "npm run dedupe && npm run build-umd"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/coinative/core.git"
+    "url": "https://github.com/coinative/satoshi.git"
   },
   "author": "Ion Drive Software Ltd.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/coinative/core/issues"
+    "url": "https://github.com/coinative/satoshi/issues"
   },
-  "homepage": "https://github.com/coinative/core",
+  "homepage": "https://github.com/coinative/satoshi",
   "devDependencies": {
     "browserify": "^4.1.8",
     "force-dedupe-git-modules": "^0.1.4",
