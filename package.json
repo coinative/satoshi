@@ -1,7 +1,7 @@
 {
   "name": "satoshi",
   "version": "0.0.2",
-  "description": "Bitcoin JavaScript Library",
+  "description": "Bitcoin core library for NodeJS and browsers",
   "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

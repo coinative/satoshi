@@ -6,7 +6,7 @@
   "authors": [
     "Ion Drive Software Ltd."
   ],
-  "description": "Bitcoin JavaScript Library",
+  "description": "Bitcoin core library for NodeJS and browsers",
   "keywords": [
     "bitcoin",
     "core",
