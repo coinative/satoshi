@@ -1,12 +1,12 @@
 
 module.exports = {
-  base58: require('core-base58'),
-  hash: require('core-hash'),
-  Address: require('core-address'),
-  HdKey: require('core-hdkey'),
-  Key: require('core-key'),
-  mnemonic: require('core-mnemonic'),
-  MsKey: require('core-mskey'),
-  Script: require('core-script'),
-  sjcl: require('core-sjcl')
+  base58: require('satoshi-base58'),
+  hash: require('satoshi-hash'),
+  Address: require('satoshi-address'),
+  HdKey: require('satoshi-hdkey'),
+  Key: require('satoshi-key'),
+  mnemonic: require('satoshi-mnemonic'),
+  MsKey: require('satoshi-mskey'),
+  Script: require('satoshi-script'),
+  sjcl: require('satoshi-sjcl')
 };

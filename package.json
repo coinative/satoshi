@@ -23,14 +23,14 @@
     "browserify": "^4.1.8",
     "force-dedupe-git-modules": "^0.1.4",
     "uglify-js": "^2.4.13",
-    "core-address": "git://github.com/coinative/core-address",
-    "core-base58": "git://github.com/coinative/core-base58",
-    "core-hash": "git://github.com/coinative/core-hash",
-    "core-hdkey": "git://github.com/coinative/core-hdkey",
-    "core-key": "git://github.com/coinative/core-key",
-    "core-mnemonic": "git://github.com/coinative/core-mnemonic",
-    "core-mskey": "git://github.com/coinative/core-mskey",
-    "core-script": "git://github.com/coinative/core-script",
-    "core-sjcl": "git://github.com/coinative/core-sjcl"
+    "satoshi-address": "git://github.com/coinative/satoshi-address",
+    "satoshi-base58": "git://github.com/coinative/satoshi-base58",
+    "satoshi-hash": "git://github.com/coinative/satoshi-hash",
+    "satoshi-hdkey": "git://github.com/coinative/satoshi-hdkey",
+    "satoshi-key": "git://github.com/coinative/satoshi-key",
+    "satoshi-mnemonic": "git://github.com/coinative/satoshi-mnemonic",
+    "satoshi-mskey": "git://github.com/coinative/satoshi-mskey",
+    "satoshi-script": "git://github.com/coinative/satoshi-script",
+    "satoshi-sjcl": "git://github.com/coinative/satoshi-sjcl"
   }
 }
