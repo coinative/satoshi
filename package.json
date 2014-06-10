@@ -1,6 +1,6 @@
 {
   "name": "satoshi",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Bitcoin core library for NodeJS and browsers",
   "main": "./index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "browserify": "^4.1.8",
     "uglify-js": "^2.4.13",
     "satoshi-address": "0.0.1",
-    "satoshi-base58":  "0.0.2",
+    "satoshi-base58": "0.0.2",
     "satoshi-hash": "0.0.1",
     "satoshi-hdkey": "0.0.1",
     "satoshi-key": "0.0.1",
