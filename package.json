@@ -19,9 +19,7 @@
     "url": "https://github.com/coinative/satoshi/issues"
   },
   "homepage": "https://github.com/coinative/satoshi",
-  "devDependencies": {
-    "browserify": "^4.1.8",
-    "uglify-js": "^2.4.13",
+  "dependencies": {
     "satoshi-address": "0.0.1",
     "satoshi-base58": "0.0.2",
     "satoshi-hash": "0.0.1",
@@ -31,5 +29,9 @@
     "satoshi-mskey": "0.0.1",
     "satoshi-script": "0.0.1",
     "satoshi-sjcl": "0.0.2"
+  },
+  "devDependencies": {
+    "browserify": "^4.1.8",
+    "uglify-js": "^2.4.13"
   }
 }
