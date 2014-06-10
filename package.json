@@ -1,6 +1,6 @@
 {
   "name": "satoshi",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Bitcoin JavaScript Library",
   "main": "./index.js",
   "scripts": {
