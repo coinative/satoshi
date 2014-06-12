@@ -8,5 +8,6 @@ module.exports = {
   mnemonic: require('satoshi-mnemonic'),
   MsKey: require('satoshi-mskey'),
   Script: require('satoshi-script'),
-  sjcl: require('satoshi-sjcl')
+  sjcl: require('satoshi-sjcl'),
+  random: require('satoshi-random')
 };

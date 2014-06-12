@@ -9,10 +9,11 @@ module.exports = {
   mnemonic: _dereq_('satoshi-mnemonic'),
   MsKey: _dereq_('satoshi-mskey'),
   Script: _dereq_('satoshi-script'),
-  sjcl: _dereq_('satoshi-sjcl')
+  sjcl: _dereq_('satoshi-sjcl'),
+  random: _dereq_('satoshi-random')
 };
 
-},{"satoshi-address":10,"satoshi-base58":12,"satoshi-hash":17,"satoshi-hdkey":19,"satoshi-key":21,"satoshi-mnemonic":23,"satoshi-mskey":24,"satoshi-script":25,"satoshi-sjcl":28}],2:[function(_dereq_,module,exports){
+},{"satoshi-address":10,"satoshi-base58":12,"satoshi-hash":17,"satoshi-hdkey":20,"satoshi-key":22,"satoshi-mnemonic":24,"satoshi-mskey":25,"satoshi-random":26,"satoshi-script":27,"satoshi-sjcl":30}],2:[function(_dereq_,module,exports){
 // http://wiki.commonjs.org/wiki/Unit_Testing/1.0
 //
 // THIS IS NOT TESTED NOR LIKELY TO WORK OUTSIDE V8!
@@ -3945,6 +3946,7 @@ module.exports=_dereq_(8)
 },{}],17:[function(_dereq_,module,exports){
 (function (Buffer){
 var sjcl = _dereq_('satoshi-sjcl');
+var hkdf = _dereq_('../lib/hkdf');
 
 var toBits = sjcl.codec.bytes.toBits;
 var toBytes = sjcl.codec.bytes.fromBits;
@@ -3988,9 +3990,39 @@ exports.hash160 = wrap(hash160);
 exports.hash256 = wrap(hash256);
 exports.hmacsha256 = wrap(hmacsha256);
 exports.hmacsha512 = wrap(hmacsha512);
+exports.hkdf256 = hkdf(wrap(hmacsha256), 32);
 
 }).call(this,_dereq_("buffer").Buffer)
-},{"buffer":5,"satoshi-sjcl":28}],18:[function(_dereq_,module,exports){
+},{"../lib/hkdf":18,"buffer":5,"satoshi-sjcl":30}],18:[function(_dereq_,module,exports){
+(function (Buffer){
+module.exports = function (hmacSha, hashLength) {
+  return {
+    extract: function (salt, ikm) {
+      if (typeof salt === 'string') {
+        salt = new Buffer(salt);
+      }
+      if (typeof ikm === 'string') {
+        ikm = new Buffer(ikm);
+      }
+      return hmacSha(salt, ikm);
+    },
+    expand: function (prk, info, length) {
+      var prev = new Buffer(0);
+      var output = new Buffer(0);
+      var num_blocks = Math.ceil(length / hashLength);
+
+      for (var i=1; i<=num_blocks; i++) {
+        prev = hmacSha(prk, Buffer.concat([prev, info, new Buffer([i])]));
+        output = Buffer.concat([output, prev])
+      }
+
+      return output.slice(0, length);
+    }
+  }
+};
+
+}).call(this,_dereq_("buffer").Buffer)
+},{"buffer":5}],19:[function(_dereq_,module,exports){
 (function (Buffer){
 var Key = _dereq_('satoshi-key');
 var sjcl = _dereq_('satoshi-sjcl');
@@ -4038,7 +4070,7 @@ exports.derivePublic = function (IL, pubUncompressed) {
 };
 
 }).call(this,_dereq_("buffer").Buffer)
-},{"buffer":5,"satoshi-key":21,"satoshi-sjcl":28}],19:[function(_dereq_,module,exports){
+},{"buffer":5,"satoshi-key":22,"satoshi-sjcl":30}],20:[function(_dereq_,module,exports){
 (function (Buffer){
 var Address = _dereq_('satoshi-address');
 var base58 = _dereq_('satoshi-base58');
@@ -4219,7 +4251,7 @@ HDKey.HARDENED_START = 0x80000000;
 module.exports = HDKey;
 
 }).call(this,_dereq_("buffer").Buffer)
-},{"./derive-module":18,"buffer":5,"satoshi-address":10,"satoshi-base58":12,"satoshi-hash":17,"satoshi-key":21}],20:[function(_dereq_,module,exports){
+},{"./derive-module":19,"buffer":5,"satoshi-address":10,"satoshi-base58":12,"satoshi-hash":17,"satoshi-key":22}],21:[function(_dereq_,module,exports){
 (function (Buffer){
 var assert = _dereq_('assert');
 var sjcl = _dereq_('satoshi-sjcl');
@@ -4344,7 +4376,7 @@ KeyModule.prototype.verify = function (hash, signature) {
 module.exports = KeyModule;
 
 }).call(this,_dereq_("buffer").Buffer)
-},{"assert":2,"buffer":5,"satoshi-sjcl":28}],21:[function(_dereq_,module,exports){
+},{"assert":2,"buffer":5,"satoshi-sjcl":30}],22:[function(_dereq_,module,exports){
 (function (Buffer){
 var Address = _dereq_('satoshi-address');
 var KeyModule = _dereq_('./key-module');
@@ -4421,7 +4453,7 @@ Key.generateK = function(prv, hash) {
 module.exports = Key;
 
 }).call(this,_dereq_("buffer").Buffer)
-},{"./key-module":20,"buffer":5,"satoshi-address":10,"satoshi-hash":17}],22:[function(_dereq_,module,exports){
+},{"./key-module":21,"buffer":5,"satoshi-address":10,"satoshi-hash":17}],23:[function(_dereq_,module,exports){
 (function (Buffer){
 var sjcl = _dereq_('satoshi-sjcl');
 
@@ -4447,7 +4479,7 @@ module.exports = wrap(function (password, salt) {
 });
 
 }).call(this,_dereq_("buffer").Buffer)
-},{"buffer":5,"satoshi-sjcl":28}],23:[function(_dereq_,module,exports){
+},{"buffer":5,"satoshi-sjcl":30}],24:[function(_dereq_,module,exports){
 (function (Buffer){
 var assert = _dereq_('assert');
 var sha256 = _dereq_('satoshi-hash').sha256;
@@ -4536,7 +4568,7 @@ exports.check = check;
 exports.toSeed = toSeed;
 
 }).call(this,_dereq_("buffer").Buffer)
-},{"./pbkdf2":22,"assert":2,"buffer":5,"satoshi-hash":17}],24:[function(_dereq_,module,exports){
+},{"./pbkdf2":23,"assert":2,"buffer":5,"satoshi-hash":17}],25:[function(_dereq_,module,exports){
 var assert = _dereq_('assert');
 var Address = _dereq_('satoshi-address');
 var Hash = _dereq_('satoshi-hash');
@@ -4577,7 +4609,22 @@ MSKey.prototype.deriveHardened = function (index) {
 
 module.exports = MSKey;
 
-},{"assert":2,"satoshi-address":10,"satoshi-hash":17,"satoshi-script":25}],25:[function(_dereq_,module,exports){
+},{"assert":2,"satoshi-address":10,"satoshi-hash":17,"satoshi-script":27}],26:[function(_dereq_,module,exports){
+(function (Buffer){
+var sjcl = _dereq_('satoshi-sjcl');
+var toBytes = sjcl.codec.bytes.fromBits;
+
+function wrap(fn) {
+  return function (size) {
+    size = size / 4;
+    return new Buffer(toBytes(fn.call(sjcl.random, size)));
+  }
+};
+
+exports.randomBytes = wrap(sjcl.random.randomWords);
+
+}).call(this,_dereq_("buffer").Buffer)
+},{"buffer":5,"satoshi-sjcl":30}],27:[function(_dereq_,module,exports){
 (function (Buffer){
 var opcodes = _dereq_('./opcode').map;
 var hash160 = _dereq_('satoshi-hash').hash160;
@@ -4861,7 +4908,7 @@ Script.opcodes = opcodes;
 module.exports = Script;
 
 }).call(this,_dereq_("buffer").Buffer)
-},{"./opcode":26,"buffer":5,"satoshi-hash":17}],26:[function(_dereq_,module,exports){
+},{"./opcode":28,"buffer":5,"satoshi-hash":17}],28:[function(_dereq_,module,exports){
 exports.map = {
   // push value
   OP_FALSE : 0x00,
@@ -5011,10 +5058,10 @@ Object.keys(exports.map).forEach(function (key) {
   exports.reverseMap[exports.map[key]] = key.substr(3);
 });
 
-},{}],27:[function(_dereq_,module,exports){
+},{}],29:[function(_dereq_,module,exports){
 // ignore require('crypto')
 
-},{}],28:[function(_dereq_,module,exports){
+},{}],30:[function(_dereq_,module,exports){
 "use strict";
 
 var sjcl = {
@@ -7348,6 +7395,6 @@ function _block(X) {
     this._h[0] = T;
 }
 
-},{"crypto":27}]},{},[1])
+},{"crypto":29}]},{},[1])
 (1)
 });

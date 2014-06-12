@@ -27,6 +27,7 @@
     "satoshi-key": "0.0.1",
     "satoshi-mnemonic": "0.0.1",
     "satoshi-mskey": "0.0.1",
+    "satoshi-random": "0.0.1",
     "satoshi-script": "0.0.1",
     "satoshi-sjcl": "0.0.2"
   },
