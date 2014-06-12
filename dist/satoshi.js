@@ -4007,6 +4007,9 @@ module.exports = function (hmacSha, hashLength) {
       return hmacSha(salt, ikm);
     },
     expand: function (prk, info, length) {
+      if (typeof info === 'string') {
+        info = new Buffer(info);
+      }
       var prev = new Buffer(0);
       var output = new Buffer(0);
       var num_blocks = Math.ceil(length / hashLength);
