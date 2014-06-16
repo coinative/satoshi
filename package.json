@@ -3,22 +3,23 @@
   "version": "0.0.10",
   "description": "Bitcoin core library for NodeJS and browsers",
   "main": "./index.js",
+  "browser": "./dist/satoshi.js",
+  "author": "Dan Howitt <dan@coinative.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coinative/satoshi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/coinative/satoshi/issues"
+  },
+  "homepage": "https://github.com/coinative/satoshi",
+  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dedupe": "npm dedupe . && rm -rf dist/*",
     "build-umd": "./node_modules/.bin/browserify ./index.js -s bitcoin --o dist/satoshi.js && ./node_modules/.bin/uglifyjs ./dist/satoshi.js --output dist/satoshi-min.js --comments",
     "build": "npm run dedupe && npm run build-umd"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/coinative/satoshi.git"
-  },
-  "author": "Ion Drive Software Ltd.",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/coinative/satoshi/issues"
-  },
-  "homepage": "https://github.com/coinative/satoshi",
   "dependencies": {
     "satoshi-address": "0.0.2",
     "satoshi-base58": "0.0.3",
