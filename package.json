@@ -4,7 +4,10 @@
   "description": "Bitcoin core library for NodeJS and browsers",
   "main": "./index.js",
   "browser": "./dist/satoshi.js",
-  "author": "Dan Howitt <dan@coinative.com>",
+  "contributors": [
+    "Ben Shepheard <ben@coinative.com>",
+    "Dan Howitt <dan@coinative.com>"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/coinative/satoshi.git"
